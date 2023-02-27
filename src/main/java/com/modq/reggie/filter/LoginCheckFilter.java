@@ -2,6 +2,7 @@ package com.modq.reggie.filter;
 
 
 import com.alibaba.fastjson.JSON;
+import com.modq.reggie.common.BaseContext;
 import com.modq.reggie.common.R;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
@@ -39,7 +40,8 @@ public class LoginCheckFilter implements Filter {
                 "/employee/login",
                 "/employee/logout",
                 "/backend/**",
-                "/front/**"
+                "/front/**",
+                "/common/**"
         };
         boolean check = check(urls, requestURI);
 
@@ -50,6 +52,8 @@ public class LoginCheckFilter implements Filter {
         }
         if (request.getSession().getAttribute("employee")!=null){
             log.info("用户已登录，用户id为{}",request.getSession().getAttribute("employee"));
+            Long empId=(Long) request.getSession().getAttribute("employee");
+            BaseContext.setCurrentId(empId);
             filterChain.doFilter(request, response);
             return;
         }
