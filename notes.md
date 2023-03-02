@@ -27,3 +27,24 @@
      enctype="multipart/form-datal采用multipart格式上传文件
      type="file"
      使用input的file控件上传
+#### 5.Spring Cache
+     Spring Cache 介绍
+     + Spring Cache是一个框架，实现了基于注解的缓存功能，只需要简单地加一个注解，就能实现缓存功能Spring Cache提供了一层抽象，底层可以切换不同的cache实现。具体就是通过CacheManager接口来统一不同的缓存技术。
+     CacheManager是Spring提供的各种缓存技术抽象接口。
+     EhCacheCacheManager 使用EhCache作为缓存技术
+     GuavaCacheManager 使用Google的GuavaCache作为缓存技术
+     RedisCacheManager 使用Redis作为缓存技术
+     + 注解             说明
+     @EnableCaching    开启缓存注解功能
+     @Cacheable        在方法执行前spring先查看缓存中是否有数据，如果有数据，则直接返回缓存数据若没有数据，调用方法并将方法返回值放到缓存中
+     @CachePut         将方法的返回值放到缓存中
+     @CacheEvict       将一条或多条数据从缓存中删除
+#### 6.SpEL
+     Spring 表达式语言（简称“SpEL”）是一种强大的表达式语言，支持在运行时查询和操作对象图。语言语法类似于 Unified EL，但提供了额外的功能，最值得注意的是方法调用和基本的字符串模板功能。
+     虽然 SpEL 是 Spring 产品组合中表达式评估的基础，但它不直接与 Spring 绑定，可以独立使用。
+#### 7.        
+       
+     
+     
+     
+
