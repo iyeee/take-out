@@ -42,7 +42,21 @@
 #### 6.SpEL
      Spring 表达式语言（简称“SpEL”）是一种强大的表达式语言，支持在运行时查询和操作对象图。语言语法类似于 Unified EL，但提供了额外的功能，最值得注意的是方法调用和基本的字符串模板功能。
      虽然 SpEL 是 Spring 产品组合中表达式评估的基础，但它不直接与 Spring 绑定，可以独立使用。
-#### 7.        
+#### 7.读写分离
+     + mysql主从复制
+     MvSOL主从复制是一个异步的复制过程，底层是基于Mvsgl数据库自带的二进制日志功能。
+     就是一台或多台MVSOL数库(slave，即从库)从另一台MSL数据库(master，即主库)进行日志的复制然后再解析志并应用到自身，
+     最终实现从库的数据和主库的数据保持一致。MVSOL主从复制是MVSOL数据库自带功能，无需借助第三方工具
+     + MySQL复制过程分成三步
+     master将改变记录到二进制日志 (binary log)
+     slave将master的binary og拷贝到它的中继日志 (relay log)
+     slave重做中继日志中的事件，将改变应用到自己的数据库中
+
+     Master(insert update delete)
+     Slave(select)
+#### 8.Sharding-JDBC
+     sharding-JDBC定位为轻量级lava框架，在ava的]DBC层提供的额外服务。它使用客户端直连数据库，以jar包形式提供服务，无需额外部署和依赖，可理解为增强版的JDBC驱动，完全兼容JDBC和各种ORM框架。使用Sharding-JDBC可以在程序中轻松的实现数据库读写分离。
+     适用于任何基于]DBC的ORM框架，如: JPA,Hibernate, Mybatis, SpringJDBCTemplate或直接使用DBC。支持任何第三方的数据库连接池，如: DBCP,C3PO,BoneCP,Druid,HikariCP等。支持任意实现IDBC规范的数据库。目前支持MySOL，Oracle，SOLServer，PostresQL以及任何遵循SQL92标准的数据库
        
      
      
