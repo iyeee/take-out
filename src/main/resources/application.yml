@@ -60,4 +60,4 @@ mybatis-plus:
 
 
 reggie:
-  path: F:\pictures\
+  path: /usr/local/img/
